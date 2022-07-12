@@ -16,3 +16,14 @@
   margin-left: 25px;
 }
 
+#bt {
+  display: flex;
+  background-color: tomato;
+  color: white;
+  width: 150px;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 50px;
+  border: none;
+  border-radius: 10px;
+}

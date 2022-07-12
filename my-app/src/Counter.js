@@ -1,42 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-class Counter extends React.Component {
-  constructor(props) {
-    super(props);
+function Counter(props) {
+  const [count, setCount] = useState(props.count);
 
-    this.state = { count: 1 };
-    this.add = this.add.bind(this);
-    this.remove = this.remove.bind(this);
-    this.dividir = this.dividir.bind(this);
-    this.multipliq = this.multipliq.bind(this);
+  useEffect(() => {
+    setCount(parseInt(localStorage.getItem("count")));
+
+    return () => {
+      console.log("Nao tem mais contador");
+    };
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("count", count);
+  }, [count]);
+
+  function add() {
+    setCount(count + 1);
   }
 
-  add() {
-    //this.setState({ count: this.state.count + 1 });
-    this.setState((state)=>{return{count: state.count + 1}});
-  }
-
- remove(){
-    this.setState((state)=>{return{count: state.count - 1}});
- }
- multipliq(){
-    this.setState((state)=>{return{count: state.count * 2}});
- }
-
- dividir(){
-    this.setState((state)=>{return{count: state.count / 2}});
- }
-
-  render() {
-    return (
-      <div>
-        <h1>Counter: {this.state.count}</h1>
-        <button id="bt" onClick={this.add}>+</button>
-        <button id="bt" onClick={this.remove}>--</button>
-        <button id="bt" onClick={this.multipliq}>X</button>
-        <button  id="bt" onClick={this.dividir}>/</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h1>Counter: {count}</h1>
+      <button onClick={add}> add</button>
+    </div>
+  );
 }
+
 export default Counter;
