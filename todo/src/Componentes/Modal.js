@@ -1,11 +1,11 @@
 import React from "react";
 import Card from "./Card";
-import { useState } from "react";
+
 
 function Modal(props) {
   function hideModal(e) {
     let target = e.target;
-    if (target.id == "modal") {
+    if (target.id === "modal") {
       props.onHideModal();
     }
   }

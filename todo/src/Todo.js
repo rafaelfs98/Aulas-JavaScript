@@ -9,7 +9,7 @@ import Modal from "./Componentes/Modal";
 const SAVED_ITEMS = "savedItems";
 
 function Todo() {
-    const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -46,12 +46,10 @@ function Todo() {
 
     setItems(updateItems);
   }
-  
-  function onHideModal(){
-    
-        setShowModal(false);
-    }
-    
+
+  function onHideModal() {
+    setShowModal(false);
+  }
 
   return (
     <div>
@@ -63,7 +61,14 @@ function Todo() {
       <div className="container">
         <header className="header">
           <h1>Todo</h1>
-          <button onClick={()=> {setShowModal(true)}} className="addButton">+</button>
+          <button
+            onClick={() => {
+              setShowModal(true);
+            }}
+            className="addButton"
+          >
+            +
+          </button>
         </header>
         {/* <TodoForm onAddItem={onAddItem}></TodoForm> */}
 
@@ -73,11 +78,12 @@ function Todo() {
           items={items}
         ></List>
 
-        <Modal show={showModal} onHideModal= {onHideModal}><TodoForm onAddItem={onAddItem}></TodoForm></Modal>
+        <Modal show={showModal} onHideModal={onHideModal}>
+          <TodoForm onAddItem={onAddItem}></TodoForm>
+        </Modal>
       </div>
     </div>
   );
-  }
-
+}
 
 export default Todo;
