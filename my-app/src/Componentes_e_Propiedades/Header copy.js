@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
-
-import Menu from "./Menu";
+import Menu from "../Menu";
 
 function Header(props) {
   return (
@@ -11,7 +10,5 @@ function Header(props) {
     </header>
   );
 }
-
-
 
 export default Header;
