@@ -1,6 +1,6 @@
-const root = document.querySelector("#root");
+const Person = require("./Person");
+const Alumn = require("./Alumn");
 
+let marcos = new Alumn("Marcos", 30, "1001");
 
-const element = React.createElement("h1",{id:"Titulo Principal"}, "Hello Word");
-
-ReactDOM.render(element, root)
+marcos.greetings();
